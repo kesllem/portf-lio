@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de pedagio</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="img/Apresentação Portfólio Profissional Fotógrafa Minimalista Verde Bege Branco (1).jpg" alt="">
+
+    <div class="td">
+        <label for="">placa
+            <input type="text" id="placa" class="placa">
+        </label>
+        
+        <label for=""> hpartida
+            <input type="number" id="hpartida" class="hp">
+        </label>
+
+        <label for=""> mnpartida
+            <input type="number" id="minpartida" class="mp">
+        </label>
+
+        <label for=""> hchegada
+            <input type="number" id="hchegada" class="hc">
+        </label>
+
+        <label for=""> minchegada
+            <input type="number" id="minchegada" class="mc">
+        </label>
+
+        <button onclick="calcula()" class="b1">Calcular</button>
+        
+        <div class="p1">
+            <p id="mensagem">Ticket de cobrança</p>
+        </div>
+
+        <button onclick="fim()" class="b2">Finalizar</button>
+        
+        <div class="p2" >
+            <p id="mensagem2" class="p02">Relatório</p>
+        </div>
+    </div>
+</body>
+</html>

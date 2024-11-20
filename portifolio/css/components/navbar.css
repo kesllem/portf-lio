@@ -1,0 +1,116 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  padding: 0 5%; /* Ajusta o espaçamento lateral */
+  width: 100%;
+  z-index: 10;
+  background-color: #313926;
+  box-shadow: var(--neon-box-shadow);
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+}
+
+.logo img {
+  max-height: 85px; /* Garante que a logo não ultrapasse 50px de altura */
+  margin-right: 20px; /* Espaçamento entre a logo e os links */
+}
+
+.navbar .navbar__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .navbar__links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .navbar__links li {
+  display: inline-block;
+  margin-right: 20px; /* Espaçamento entre os links */
+}
+
+.navbar .navbar__links li:last-of-type {
+  margin-right: 0; /* Remove margem do último item */
+}
+
+.navbar .navbar__links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar .navbar__links a:hover {
+  color: var(--tertiary-color);
+}
+
+.navbar.active {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar__mobile {
+  display: none;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 768px) {
+  .navbar .navbar__links {
+    display: none; /* Esconde os links na barra superior */
+  }
+
+  .navbar .navbar__mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .navbar__mobile img {
+    width: 30px; /* Ajusta o tamanho do menu hambúrguer */
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .navbar .navbar__mobile.active .mobile__links {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    position: absolute;
+    top: 80px; /* Ajusta a posição para ficar abaixo da navbar */
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .navbar .navbar__mobile.active .mobile__links li {
+    margin-right: 0;
+  }
+
+  .navbar .navbar__mobile.active .mobile__links li a {
+    padding: 10px;
+    display: block;
+    text-align: center;
+    color: #333;
+  }
+
+  .navbar .navbar__mobile.active .mobile__links li a:hover {
+    color: var(--tertiary-color);
+  }
+
+  .mobile__links {
+    display: none; /* Inicialmente escondido */
+  }
+  
+  .mobile__links.active {
+    display: flex; /* Exibe o menu quando ativo */
+  }
+  
+}
