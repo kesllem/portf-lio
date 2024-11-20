@@ -1,0 +1,104 @@
+.projects {
+  margin-bottom: 16rem;
+  scroll-margin-top: 15rem;
+}
+
+.projects .projects__content {
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto 6rem;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Esconde os itens fora da visão */
+  width: 90%;
+  max-width: 1600px;
+  position: relative;
+  will-change: transform; /* Para melhor desempenho */
+}
+
+.carousel-item {
+  flex: 0 0 150px; /* Tamanho fixo dos itens */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+/* As imagens menores terão blur */
+.carousel-item img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel-item p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #161616;
+}
+
+/* Estilo para a imagem central (inicialmente a imagem 4) */
+.carousel-item.middle {
+  flex: 0 0 210px; /* Tamanho da imagem 4 */
+  height: 280px; /* Altura da imagem 4 */
+  z-index: 5;
+}
+
+/* Quando qualquer item não for o central, ele recebe um efeito de desfoque */
+.carousel-item:not(.middle) img {
+  filter: blur(3px); /* Desfoque nas imagens não selecionadas */
+  transform: scale(0.9); /* Reduz um pouco o tamanho das imagens não selecionadas */
+}
+
+/* Quando o item for o meio, ele ganha foco */
+.carousel-item.middle img {
+  filter: none; /* Remove o desfoque da imagem central */
+  transform: scale(1); /* Ajusta o tamanho da imagem central */
+}
+
+/* Estilo para as setas de navegação */
+.carousel-nav {
+  font-size: 40px;
+  color: #0b9b36;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Garante que as setas fiquem sobre as imagens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* Seta esquerda (entre as imagens 1 e 2) */
+#prev {
+  left: 5%;
+}
+
+/* Seta direita (entre as imagens 6 e 7) */
+#next {
+  right: 5%;
+}
+
+.carousel-nav:hover {
+  color: #03471d;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item a {
+  text-decoration: none;
+  color: inherit;
+}

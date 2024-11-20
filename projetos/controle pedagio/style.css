@@ -1,0 +1,106 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    display: flex;
+}
+
+img{ position: absolute;
+    background-size: cover;      /* Faz com que a imagem cubra 100% da tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;/* Evita que a imagem se repita */
+    height: 100vh;               /* 100% da altura da viewport */
+    width: 100vw;                /* 100% da largura da viewport */
+}
+.placa{ position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 26%;
+    margin-left: 39%;
+    height: 3%;
+    width: 20%;
+}
+
+.hp{ position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 3%;
+    width: 20%;
+    margin-top: 36%;
+    margin-left: -2%;
+}
+
+.mp{ position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 3%;
+    width: 20%;
+    margin-top: 36%;
+    margin-left: 18.5%;
+    
+}
+
+.hc{ position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 3%;
+    width: 20%;
+    margin-top: 36%;
+    margin-left: 46%;
+}
+
+.mc{ position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 3%;
+    width: 20%;
+    margin-top: 36%;
+    margin-left: 66%;
+}
+
+.p1{
+    position: absolute;
+    background-color: rgb(172, 122, 48);
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 20%;
+    left: 10%;
+    height: 20%;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.p2{
+    position: absolute;
+    background-color: rgb(172, 122, 48);
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 20%;
+    left: 78%;
+    height: 20%;
+    width: 10%;
+    border-radius: 10px;
+}
+
+
+
+
+button{ position: absolute;
+    
+}
+
+.b1{ cursor: pointer;
+    height: 3%;
+    width: 10%;
+    margin-top: 44%;
+    margin-left: 28%;
+    border-radius: 5px;
+}
+
+.b2{ cursor: pointer;
+    height: 3%;
+    width: 10%;
+    margin-top: 44%;
+    margin-left: 40%;
+    border-radius: 5px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Comigo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: inherit;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: inherit;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .confirmation {
+            display: none;
+            padding: 15px;
+            background-color: #e7f7e7;
+            color: #4CAF50;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .whatsapp-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #25D366;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fale Comigo</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Seu nome</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Seu e-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Sua mensagem</label>
+                <textarea id="message" name="message" placeholder="Digite sua mensagem" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="confirmationMessage" class="confirmation">
+            <p><strong>Obrigado!</strong> Sua mensagem foi enviada. Em breve, entraremos em contato com você.</p>
+            <p><strong>Dados principais:</strong></p>
+            <p><strong>Nome:</strong> <span id="confName"></span></p>
+            <p><strong>E-mail:</strong> <span id="confEmail"></span></p>
+            <p><strong>Mensagem:</strong> <span id="confMessage"></span></p>
+        </div>
+
+        <a id="whatsappLink" class="whatsapp-link" href="#" target="_blank" style="display: none;">
+            Enviar mensagem pelo WhatsApp
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Inicializa o EmailJS com a sua chave pública
+        emailjs.init("9xlB4DFiS0Z8rKaiC");  // Substitua com sua chave pública
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Evita o recarregamento da página
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Parâmetros para enviar via EmailJS
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Enviar o e-mail via EmailJS
+            emailjs.send("service_bykesllem", "template_7dtx6zp", templateParams)
+                .then(function(response) {
+                    // Exibe confirmação de envio
+                    document.getElementById("confirmationMessage").style.display = 'block';
+                    document.getElementById("confName").textContent = name;
+                    document.getElementById("confEmail").textContent = email;
+                    document.getElementById("confMessage").textContent = message;
+
+                    // Mostra o link do WhatsApp
+                    const whatsappUrl = `https://wa.me/5579988333678?text=Olá,%20tenho%20uma%20mensagem%20de%20contato:%20Nome:%20${name}%20Email:%20${email}%20Mensagem:%20${message}`;
+                    document.getElementById("whatsappLink").href = whatsappUrl;
+                    document.getElementById("whatsappLink").style.display = 'block';
+                }, function(error) {
+                    alert("Erro ao enviar a mensagem. Tente novamente.");
+                    console.log(error);  // Exibe o erro no console para depuração
+                });
+        });
+    </script>
+
+</body>
+</html>
